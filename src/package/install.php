@@ -2,9 +2,7 @@
 
 use PHP94\Package;
 
-return [
-    'install' => function () {
-        $sql = <<<'str'
+$sql = <<<'str'
 DROP TABLE IF EXISTS `prefix_php94_link_log`;
 CREATE TABLE `prefix_php94_link_log` (
     `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -28,13 +26,5 @@ CREATE TABLE `prefix_php94_link_url` (
     PRIMARY KEY (`id`) USING BTREE
 ) COMMENT = '链接地址' COLLATE = 'utf8mb4_general_ci' ENGINE = InnoDB ROW_FORMAT = DYNAMIC AUTO_INCREMENT = 1;
 str;
-        Package::execSql($sql);
-    },
-    'unInstall' => function () {
-        $sql = <<<'str'
-DROP TABLE IF EXISTS `prefix_php94_link_log`;
-DROP TABLE IF EXISTS `prefix_php94_link_url`;
-str;
-        Package::execSql($sql);
-    },
-];
+
+Package::execSql($sql);
