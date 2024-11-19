@@ -16,9 +16,6 @@ class Delete extends Common
         Db::delete('php94_link_url', [
             'id' => Request::get('id'),
         ]);
-        Db::delete('php94_link_log', [
-            'url_id' => Request::get('id'),
-        ]);
         return Response::success('操作成功！');
     }
 }

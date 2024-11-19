@@ -19,10 +19,8 @@
         <thead>
             <tr>
                 <th class="text-nowrap">KEY</th>
-                <th scope="col">今日点击</th>
-                <th scope="col">昨日点击</th>
-                <th scope="col">前日点击</th>
-                <th scope="col">总点击</th>
+                <th scope="col">跳转地址</th>
+                <th scope="col">备注</th>
                 <th class="text-nowrap">管理</th>
             </tr>
         </thead>
@@ -32,13 +30,10 @@
                 <td>
                     <a href="{echo $router->build('/php94/link/jump', ['key'=>$vo['key']])}" target="_blank">{$vo.key}</a>
                 </td>
-                <td>{$vo.click_today}</td>
-                <td>{$vo.click_yesterday}</td>
-                <td>{$vo.click_before_yesterday}</td>
-                <td>{$vo.click_total}</td>
+                <td>{$vo.url}</td>
+                <td>{$vo.tips}</td>
                 <td>
                     <a href="{echo $router->build('/php94/link/url/update', ['id'=>$vo['id']])}">编辑</a>
-                    <a href="{echo $router->build('/php94/link/log/index', ['url_id'=>$vo['id']])}">跳转记录</a>
                     <a href="{echo $router->build('/php94/link/url/delete', ['id'=>$vo['id']])}" onclick="return confirm('确定删除吗？删除后不可恢复！');">删除</a>
                 </td>
             </tr>

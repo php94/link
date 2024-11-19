@@ -35,19 +35,6 @@ class Jump implements RequestHandlerInterface
         ])) {
             return Response::error('地址不存在~');
         }
-
-        Db::insert('php94_link_log', [
-            'url_id' => $url['id'],
-            'time' => time(),
-            'year' => date('Y'),
-            'month' => date('m'),
-            'day' => date('d'),
-            'url' => $url['url'],
-            'remote_addr' => $_SERVER['REMOTE_ADDR'] ?? '',
-            'http_referer' => $_SERVER['HTTP_REFERER'] ?? '',
-            'http_user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? '',
-        ]);
-
         return Response::redirect($url['url']);
     }
 }
